@@ -18,5 +18,16 @@ class Board
     puts @grid
   end
 
+  def [](position)
+    x, y = position
+    @grid[x][y]
+  end
 
+  def [](position, value)
+    x, y = position
+    @grid[x][y] = value
+  end
+
+
+  
 end
