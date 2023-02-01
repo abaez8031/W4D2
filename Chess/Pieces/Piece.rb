@@ -1,11 +1,12 @@
 require_relative "../Board"
 
 class Piece
-  attr_reader :position, :board
+  attr_reader :position, :board, :color
   def initialize(color,board,position)
     @color = color
     @board = board
     @position = position
+    self.board[position] = self
   end
 
   def valid_moves
