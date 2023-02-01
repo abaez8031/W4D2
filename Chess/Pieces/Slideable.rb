@@ -74,9 +74,16 @@ module Slideable
         # but, the piece cannot continue to move past this piece, so stop looping
         # if the new position is occupied with a piece of the same color, stop looping
 
-        x, y = self.position
-        new_position = [x + dx, y + dy]
-        one_direction_moves << new_position if self.board.valid_pos?(new_position) && self.board[new_position] == nil
+        x, y = self.position # [4,3]
+        new_position = [x + dx, y + dy] #[5,2]
+        if self.board[new_position] != nil && self.board[new_position].color != self.color
+            one_direction_moves << new_position
+            return one_direction_moves
+        end
+        
+        if self.board.valid_pos?(new_position) && self.board[new_position] == nil
+            one_direction_moves << new_position 
+        end
 
 
         until !self.board.valid_pos?(new_position)
