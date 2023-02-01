@@ -1,4 +1,4 @@
-require_relative "Piece"
+require_relative "./Pieces/Piece"
 
 class Board
 
@@ -22,7 +22,7 @@ class Board
   end
 
   def render
-    puts @grid
+    p @grid
   end
 
   def [](position)
