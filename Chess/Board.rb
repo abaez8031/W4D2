@@ -7,11 +7,18 @@ class Board
   end
 
   def setup
-    [0,1,6,7].each do |i|
+    [0,1].each do |i|
       (0...@grid.length).each do |j|
-        @grid[i][j] = Piece.new
+        @grid[i][j] = Piece.new("white",self,[i,j])
       end
     end
+
+    [6,7].each do |i|
+      (0...@grid.length).each do |j|
+        @grid[i][j] = Piece.new("black",self,[i,j])
+      end
+    end
+    
   end
 
   def render
